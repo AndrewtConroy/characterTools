@@ -86,6 +86,6 @@ def installScripts():
         mel.eval('saveAllShelves $gShelfTopLevel;')
         
 
-import LWS_LicenseUI
-reload(LWS_LicenseUI)
-LWS_LicenseUI.UI()
+    import LWS_LicenseUI
+    reload(LWS_LicenseUI)
+    LWS_LicenseUI.UI()
