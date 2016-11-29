@@ -1,5 +1,6 @@
 import urllib2
 import maya.cmds as cmds
+import maya.mel as mel
 from os import listdir
 from os.path import isfile, join
 import zipfile
