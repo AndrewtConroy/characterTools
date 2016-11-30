@@ -74,12 +74,14 @@ def installScripts():
         print shelfFiles
         for file in shelfFiles:
             shutil.copy(scripts + 'characterTools-master/shelves/' + file, shelves) 
-         
-
-        #rebuild and save shelf
+                
         mel.eval('rehash;')
-        
+        fileWrite = open(scripts + 'userSetup.mel', 'w')
+        fileWrite.write('LWS_Menu;')
+        fileWrite.close()
 
+        
+    
     import LWS_LicenseUI
     reload(LWS_LicenseUI)
     LWS_LicenseUI.UI()
