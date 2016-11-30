@@ -78,12 +78,6 @@ def installScripts():
 
         #rebuild and save shelf
         mel.eval('rehash;')
-        try:
-            mel.eval('loadNewShelf "shelf_LongWinter.mel";')
-        except:
-            mel.eval('loadNewShelf "shelf_LongWinter.mel";')
-
-        mel.eval('saveAllShelves $gShelfTopLevel;')
         
 
     import LWS_LicenseUI
