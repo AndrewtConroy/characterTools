@@ -1,4 +1,4 @@
-global proc LongWinter()
+global proc LWS_Menu()
 {
     global string $myMenuMain;
         if (`menu -exists $myMenuMain`)
@@ -17,7 +17,7 @@ global proc LongWinter()
 ;
  
 //calling the proc, so that the script runs
-LongWinter;
+LWS_Menu;
 
 
     
