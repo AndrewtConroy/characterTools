@@ -7,21 +7,25 @@ from os.path import isfile, join
 import zipfile
 import shutil
 
+
 def installScripts():
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
     shelves = cmds.internalVar(upd = True) + 'shelves'
-    print shelves
-
-
     versionUrl = 'https://raw.githubusercontent.com/AndrewtConroy/characterTools/master/LWS_ToolsVersion.md'
     readVersion = urllib2.urlopen(versionUrl).read()
     readVersion = int(readVersion[-3:])
-
     versionFile = scripts + 'LWS_ToolsVersion.md'
     versionCheck = os.path.isfile(versionFile)
     updateVersion = False
+    scripts = cmds.internalVar(usd = True)
+    scriptList = os.listdir(scripts)
+    lwsScripts = ['LWS_SpeedPick.pyc','LWS_Install.pyc','LWS_Menu.mel','LWS_LicenseUI.pyc']
+    for script in lwsScripts:
+        if script not in scriptList :
+            updateVersion = True
+
     if versionCheck == True:
         currentVersion = open(versionFile, 'r').read()
         currentVersion = int(currentVersion[-3:])
