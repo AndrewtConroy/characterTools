@@ -14,11 +14,10 @@ global proc LWS_Menu()
         menuItem -p $myMenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\");\n \npython(\"reload(LWS_speedPick)\");\n \npython(\"LWS_speedPick.UI()\")";
         menuItem -p $myMenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager\");\n \npython(\"reload(LWS_CharacterManager)\");\n \npython(\"LWS_CharacterManager.UI()\")";
         menuItem -p $myMenuMain -l "Visit Site" -c "launch -web \"http://longwintermembers.com/\"";
+
+
 }
 ;
  
 //calling the proc, so that the script runs
 LWS_Menu;
-
-
-    

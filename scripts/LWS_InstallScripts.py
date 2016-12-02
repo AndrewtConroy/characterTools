@@ -75,16 +75,6 @@ def installScripts():
         for file in shelfFiles:
             shutil.copy(scripts + 'characterTools-master/shelves/' + file, shelves) 
         
-        if os.path.isfile(scripts + 'userSetup.mel') ==  True :
-            fileText = open(scripts + 'userSetup.mel').read()
-            if 'LWS_Menu;' not in fileText :
-                fileWrite = open(scripts + 'userSetup.mel', 'a')
-                fileWrite.write('LWS_Menu;')
-                fileWrite.close()
-        else:
-            fileWrite = open(scripts + 'userSetup.mel', 'w')
-            fileWrite.write('LWS_Menu;')
-            fileWrite.close()
         mel.eval('rehash;')
 
         
