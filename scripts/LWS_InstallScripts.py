@@ -21,7 +21,7 @@ def installScripts():
     updateVersion = False
     scripts = cmds.internalVar(usd = True)
     scriptList = os.listdir(scripts)
-    lwsScripts = ['LWS_SpeedPick.pyc','LWS_Install.pyc','LWS_Menu.mel','LWS_LicenseUI.pyc']
+    lwsScripts = ['LWS_SpeedPick.pyc','LWS_Install.pyc','LWS_Menu.mel','LWS_LicenseUI.pyc','MayaNodes.mel']
     for script in lwsScripts:
         if script not in scriptList :
             updateVersion = True
