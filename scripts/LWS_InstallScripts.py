@@ -51,7 +51,7 @@ def installScripts():
         
         scriptFiles = os.listdir(scripts + 'characterTools-master/scripts/')
         iconFiles = os.listdir(scripts + 'characterTools-master/icons/')
-        shelfFiles = os.listdir(scripts + 'characterTools-master/shelves/')
+        #shelfFiles = os.listdir(scripts + 'characterTools-master/shelves/')
         shutil.copy(scripts + 'characterTools-master/' + 'LWS_ToolsVersion.md', scripts) 
         try:
             os.remove(scripts + '/characterTools-master')
