@@ -7,7 +7,7 @@ from os.path import isfile, join
 import zipfile
 import shutil
 
-def installScripts():
+def files():
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
