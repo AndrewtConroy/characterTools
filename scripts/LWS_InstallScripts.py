@@ -51,7 +51,6 @@ def installScripts():
         
         scriptFiles = os.listdir(scripts + 'characterTools-master/scripts/')
         iconFiles = os.listdir(scripts + 'characterTools-master/icons/')
-        #shelfFiles = os.listdir(scripts + 'characterTools-master/shelves/')
         shutil.copy(scripts + 'characterTools-master/' + 'LWS_ToolsVersion.md', scripts) 
         try:
             os.remove(scripts + '/characterTools-master')
@@ -72,11 +71,6 @@ def installScripts():
         print iconFiles
         for file in iconFiles:
             shutil.copy(scripts + 'characterTools-master/icons/' + file, icons) 
-        
-        #install shelves
-        print shelfFiles
-        for file in shelfFiles:
-            shutil.copy(scripts + 'characterTools-master/shelves/' + file, shelves) 
         
         mel.eval('rehash;')
 
