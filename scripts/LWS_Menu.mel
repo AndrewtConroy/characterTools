@@ -10,11 +10,11 @@ global string $gMainWindow;
 $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
 
 //here you can insert your labels and commands for the menu items. Replace test_01, 02, 03 with your own mel scripts.
-    menuItem -p $MenuMain -l "Activate Scene" -c "python(\"import LWS_LicenseUI\")\npython(\"reload(LWS_LicenseUI)\")\npython(\"LWS_LicenseUI.UI\")";
-    menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_LicenseUI\")\npython(\"reload(LWS_LicenseUI)\")\npython(\"LWS_LicenseUI.UI\")";
-    menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_LicenseUI\")\npython(\"reload(LWS_LicenseUI)\")\npython(\"LWS_LicenseUI.UI\")";
-    menuItem -p $MenuMain -l "Visit Site" -c "python(\"import LWS_LicenseUI\")\npython(\"reload(LWS_LicenseUI)\")\npython(\"LWS_LicenseUI.UI\")";
-
+    menuItem -p $MenuMain -l "Activate Scene" -c "python(\"import LWS_LicenseUI\ as lic\");\npython(\"reload(lic)\");\npython(\"lic.UI()\");";
+    menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
+    menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\ as speed\");\npython(\"reload(speed)\");\npython(\"speed.UI()\");";
+    menuItem -p $MenuMain -l "Visit Site" -c "launch -web \"http://www.longwintermembers.com\";";
+        
 }
 ;
 

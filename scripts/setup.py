@@ -76,7 +76,6 @@ def files():
         import LWS_LicenseUI 
         reload(LWS_LicenseUI) 
         LWS_LicenseUI.licenseNodes() 
-        mel.eval('LWS_Menu;')
 
         
     
