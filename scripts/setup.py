@@ -20,7 +20,7 @@ def files():
     updateVersion = False
     scripts = cmds.internalVar(usd = True)
     scriptList = os.listdir(scripts)
-    lwsScripts = ['LWS_SpeedPick.pyc','LWS_InstallScripts.pyc','LWS_LicenseUI.pyc','MayaNodes.mel']
+    lwsScripts = ['LWS_SpeedPick.pyc','LWS_InstallScripts.pyc','LWS_LicenseUI.pyc','LWS_CharacterManager.pyc']
     for script in lwsScripts:
         if script not in scriptList :
             updateVersion = True
@@ -73,6 +73,10 @@ def files():
             shutil.copy(scripts + 'characterTools-master/icons/' + file, icons) 
         
         mel.eval('rehash;')
+        import LWS_LicenseUI 
+        reload(LWS_LicenseUI) 
+        LWS_LicenseUI.licenseNodes() 
+        LWS_LicenseUI.LWS_Menu()
 
         
     
