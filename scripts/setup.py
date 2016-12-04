@@ -56,12 +56,8 @@ def files():
             os.remove(scripts + '/characterTools-master')
         except:
             pass
-        try:
-            cmds.deleteUI('LongWinter', layout = True) 
-            os.remove(shelves + '/shelf_LongWinter.mel')
-            print shelves
-        except:
-            pass
+
+
 
         #install scripts
         print scriptFiles
