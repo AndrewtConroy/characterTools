@@ -72,9 +72,7 @@ def installScripts():
         for file in iconFiles:
             shutil.copy(scripts + 'characterTools-master/icons/' + file, icons) 
         
+        mel.eval('rehash;')
 
         
     
-    import LWS_LicenseUI
-    reload(LWS_LicenseUI)
-    LWS_LicenseUI.UI()
