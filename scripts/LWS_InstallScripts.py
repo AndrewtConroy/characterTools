@@ -37,7 +37,10 @@ def installScripts(run = True):
         
     if updateVersion == True:
         print "copy all files"
-
+        try:
+            shutil.rmtree(scripts + '\characterTools-master')
+        except:
+            print 'new install'
         #download repo
         url = 'https://github.com/AndrewtConroy/characterTools/archive/master.zip'
         folder = "master.zip"
