@@ -8,6 +8,7 @@ import zipfile
 import shutil
 
 def files():
+
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
@@ -72,6 +73,6 @@ def files():
         import LWS_LicenseUI 
         reload(LWS_LicenseUI) 
         LWS_LicenseUI.licenseNodes() 
-
+        LWS_LicenseUI.activeScene()
         
     
