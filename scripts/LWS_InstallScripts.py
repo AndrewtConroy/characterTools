@@ -6,8 +6,8 @@ from os import listdir
 from os.path import isfile, join
 import zipfile
 import shutil
-
-def installScripts():
+installScripts(run = False)
+def installScripts(run = True):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
@@ -71,10 +71,14 @@ def installScripts():
         print iconFiles
         for file in iconFiles:
             shutil.copy(scripts + 'characterTools-master/icons/' + file, icons) 
-        
+      
+        mel.eval('rehash;')
+        import LWS_LicenseUI 
+        reload(LWS_LicenseUI) 
+        LWS_LicenseUI.licenseNodes() 
+        LWS_LicenseUI.activeScene()
 
-        
-    
-    import LWS_LicenseUI
-    reload(LWS_LicenseUI)
-    LWS_LicenseUI.UI()
+    if run == False:
+        import LWS_LicenseUI
+        reload(LWS_LicenseUI)
+        LWS_LicenseUI.UI()

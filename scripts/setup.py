@@ -57,9 +57,6 @@ def files():
             os.remove(scripts + '/characterTools-master')
         except:
             pass
-
-
-
         #install scripts
         print scriptFiles
         for file in scriptFiles:
