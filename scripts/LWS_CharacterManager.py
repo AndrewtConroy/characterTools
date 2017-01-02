@@ -5,15 +5,13 @@ import platform
 import subprocess
 import urllib2
 import zipfile
-import shutil
-
+import shutil 
+ 
 def chunk_report(bytes_so_far, chunk_size, total_size):
     percent = float(bytes_so_far) / total_size
     percent = round(percent*100, 2)
     gMainProgressBar = maya.mel.eval('$tmp = $gMainProgressBar')
     cmds.progressBar(gMainProgressBar, edit=True, progress=percent)
-    sys.stdout.write("Downloaded %d of %d bytes (%0.2f%%)\r" % 
-       (bytes_so_far, total_size, percent))
     if bytes_so_far >= total_size:
       sys.stdout.write('\n')
 def chunk_read(response,fileName, chunk_size=5000000, report_hook=None):
@@ -31,23 +29,16 @@ def chunk_read(response,fileName, chunk_size=5000000, report_hook=None):
     while 1:
         chunk = response.read(chunk_size)
         fileWrite.write(chunk)
-                
-                
         bytes_so_far += len(chunk)
         if not chunk:
          break
         if report_hook:
          report_hook(bytes_so_far, chunk_size, total_size)   
-
-             
     cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
     fileWrite.close()
 
     return bytes_so_far
-
-
-
-   
+        
    
 
 pointer = long(OpenMayaUI.MQtUtil.mainWindow())
@@ -209,8 +200,7 @@ class BasicDialog (QtGui.QDialog):
                         subprocess.Popen(["open", path])
                     else:
                         subprocess.Popen(["xdg-open", path])
-
-
+                        
 def UI ():
     w=BasicDialog()
     w.show()
