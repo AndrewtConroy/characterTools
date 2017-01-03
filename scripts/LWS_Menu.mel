@@ -14,6 +14,9 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
     menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
     menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\ as speed\");\npython(\"reload(speed)\");\npython(\"speed.UI()\");";
     menuItem -p $MenuMain -l "Visit Site" -c "launch -web \"http://www.longwintermembers.com\";";
+    menuItem -p $MenuMain -l "HELP!" -c "launch -web \"https://longwintermembers.com/help\";";
+        
+        
         
 }
 ;
