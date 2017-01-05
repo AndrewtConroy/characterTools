@@ -1,6 +1,19 @@
 from maya import OpenMaya, OpenMayaUI, OpenMayaAnim, cmds, mel
-from PySide import QtCore, QtGui
-import shiboken, sys, os
+
+
+try:
+    from PySide import QtCore
+    from PySide import QtGui as gui
+    import sys, os
+    import shiboken
+
+except:
+    from PySide2 import QtCore
+    from PySide2 import QtWidgets as gui
+    import shiboken2 as shiboken
+    import sys, os
+
+    
 import platform
 import subprocess
 import urllib2
@@ -9,15 +22,15 @@ import shutil
    
 
 pointer = long(OpenMayaUI.MQtUtil.mainWindow())
-maya_window = shiboken.wrapInstance(pointer, QtGui.QMainWindow) 
+maya_window = shiboken.wrapInstance(pointer, gui.QMainWindow) 
 
-class BasicDialog (QtGui.QDialog):
+class BasicDialog (gui.QDialog):
     
     def __init__ (self, parent = maya_window): 
         super(BasicDialog, self).__init__(parent) 
         object_name = "LWS Character Manager" 
 
-        exist = parent.findChild(QtGui.QDialog, object_name) 
+        exist = parent.findChild(gui.QDialog, object_name) 
         
         if exist:
             shiboken.delete (exist) 
@@ -29,23 +42,23 @@ class BasicDialog (QtGui.QDialog):
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.setWindowFlags(QtCore.Qt.Tool)
    
-        main_layout = QtGui.QVBoxLayout(self) 
-        layout_labels = QtGui.QHBoxLayout(self)
-        layout_button = QtGui.QVBoxLayout(self)
-        layout_button2 = QtGui.QHBoxLayout(self)
-        layout_button3 = QtGui.QHBoxLayout(self)
-        layout_check = QtGui.QHBoxLayout(self)
-        layout_dir = QtGui.QVBoxLayout(self)
+        main_layout = gui.QVBoxLayout(self) 
+        layout_labels = gui.QHBoxLayout(self)
+        layout_button = gui.QVBoxLayout(self)
+        layout_button2 = gui.QHBoxLayout(self)
+        layout_button3 = gui.QHBoxLayout(self)
+        layout_check = gui.QHBoxLayout(self)
+        layout_dir = gui.QVBoxLayout(self)
         
-        self.drop_file = QtGui.QComboBox()
-        self.button_build = QtGui.QPushButton("Open File")
-        self.button_refrence = QtGui.QPushButton("Refrence File")
-        self.button_reloadRef = QtGui.QPushButton("Reload Char")
-        self.button_save = QtGui.QPushButton("Set Project")
-        self.button_openDir = QtGui.QPushButton("Open Directory")
+        self.drop_file = gui.QComboBox()
+        self.button_build = gui.QPushButton("Open File")
+        self.button_refrence = gui.QPushButton("Refrence File")
+        self.button_reloadRef = gui.QPushButton("Reload Char")
+        self.button_save = gui.QPushButton("Set Project")
+        self.button_openDir = gui.QPushButton("Open Directory")
 
 
-        self.button_DownloadAll = QtGui.QPushButton("Install Characters")
+        self.button_DownloadAll = gui.QPushButton("Install Characters")
 
         if os.path.exists(self.dir + 'LWS_Characters'): 
             self.button_DownloadAll.setText('Refresh Characters')
