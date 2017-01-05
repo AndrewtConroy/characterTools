@@ -43,14 +43,22 @@ class BasicDialog (QtGui.QDialog):
         self.button_reloadRef = QtGui.QPushButton("Reload Char")
         self.button_save = QtGui.QPushButton("Set Project")
         self.button_openDir = QtGui.QPushButton("Open Directory")
+
+
         self.button_DownloadAll = QtGui.QPushButton("Install Characters")
-        
+
         if os.path.exists(self.dir + 'LWS_Characters'): 
             self.button_DownloadAll.setText('Refresh Characters')
+            self.drop_file.setStyleSheet("background-color: grey")
+            self.button_refrence.setStyleSheet("background-color: grey")
+
+        else:
+            self.button_DownloadAll.setStyleSheet(("background-color:#639833;\
+            border: 5px solid #639833")) 
 
         layout_button.addWidget(self.drop_file)
-        map(layout_button2.addWidget, (self.button_build,self.button_save))
-        map(layout_button3.addWidget, (self.button_refrence, self.button_reloadRef))
+        map(layout_button2.addWidget, (self.button_refrence,self.button_save))
+        map(layout_button3.addWidget, (self.button_build, self.button_reloadRef))
         map(layout_dir.addWidget,(self.button_openDir,self.button_DownloadAll))
         map(main_layout.addLayout, [layout_check, layout_button,layout_button2, layout_button3, layout_dir])
         
@@ -60,11 +68,14 @@ class BasicDialog (QtGui.QDialog):
         self.button_refrence.clicked.connect(self.refrenceFile)
         self.button_reloadRef.clicked.connect(self.reloadRef)
         self.button_openDir.clicked.connect(self.openDir)
-        self.button_DownloadAll.clicked.connect(self.downloadCharacters)
+        self.button_DownloadAll.clicked.connect(self.downloadCharacters);
+        self.button_DownloadAll.clicked.connect(self.refreshUI)
         
         self.populateProjects()
         
-    
+    def refreshUI(self):
+        import LWS_CharacterManager
+        LWS_CharacterManager.UI()
     def populateProjects(self) :
                
         self.drop_file.clear()
@@ -177,6 +188,7 @@ class BasicDialog (QtGui.QDialog):
                 sys.stdout.write('could not unzip file....');
             sys.stdout.write('Files Installed!')
             self.populateProjects()
+
         except:
             confirm = cmds.confirmDialog( title='Install Failed', message='Would you like to view the HELP Doc for further instructions?', button=['OK'], defaultButton='Yes', cancelButton='No', dismissString='No' )
             if confirm == 'OK':
