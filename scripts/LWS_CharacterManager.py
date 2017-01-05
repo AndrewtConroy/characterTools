@@ -49,7 +49,6 @@ class BasicDialog (QtGui.QDialog):
 
         if os.path.exists(self.dir + 'LWS_Characters'): 
             self.button_DownloadAll.setText('Refresh Characters')
-            self.drop_file.setStyleSheet("background-color: grey")
             self.button_refrence.setStyleSheet("background-color: grey")
 
         else:
