@@ -6,6 +6,7 @@ from os import listdir
 from os.path import isfile, join
 import zipfile
 import shutil
+import maya.OpenMaya as api
 
 def installScripts(run = True):
     scripts = cmds.internalVar(usd = True)
@@ -81,7 +82,9 @@ def installScripts(run = True):
         LWS_LicenseUI.licenseNodes() 
         LWS_LicenseUI.activeScene()
 
+
     if run == False:
         import LWS_LicenseUI
         reload(LWS_LicenseUI)
         LWS_LicenseUI.UI()
+        LWS_LicenseUI.activeScene()
