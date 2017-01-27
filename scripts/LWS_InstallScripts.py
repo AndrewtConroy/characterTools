@@ -7,15 +7,17 @@ from os.path import isfile, join
 import zipfile
 import shutil
 import maya.OpenMaya as api
-
+installScripts(run = True)
 def installScripts(run = True):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
     shelves = cmds.internalVar(upd = True) + 'shelves'
     versionUrl = 'https://raw.githubusercontent.com/AndrewtConroy/characterTools/master/LWS_ToolsVersion.md'
-    readVersion = urllib2.urlopen(versionUrl).read()
-    readVersion = int(readVersion[-3:])
+    readVersion = urllib2.urlopen(versionUrl).read().replace(" ","")
+    readVersion = readVersion[-5:]
+    print readVersion
+    
     versionFile = scripts + 'LWS_ToolsVersion.md'
     versionCheck = os.path.isfile(versionFile)
     updateVersion = False
