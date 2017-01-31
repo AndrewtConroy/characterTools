@@ -7,6 +7,7 @@ from os.path import isfile, join
 import zipfile
 import shutil
 import maya.OpenMaya as api
+
 def installScripts(run = True):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
@@ -14,22 +15,23 @@ def installScripts(run = True):
     shelves = cmds.internalVar(upd = True) + 'shelves'
     versionUrl = 'https://raw.githubusercontent.com/AndrewtConroy/characterTools/master/LWS_ToolsVersion.md'
     readVersion = urllib2.urlopen(versionUrl).read().replace(" ","")
-    readVersion = 00
-    
+    readVersion = int(readVersion)
+    print readVersion
+
     versionFile = scripts + 'LWS_ToolsVersion.md'
     versionCheck = os.path.isfile(versionFile)
     updateVersion = False
     scripts = cmds.internalVar(usd = True)
     scriptList = os.listdir(scripts)
-    lwsScripts = ['LWS_speedPick.pyc','LWS_InstallScripts.py','LWS_LicenseUI.pyc','LWS_Menu.mel','LWS_CharacterManager.pyc']
+    lwsScripts = ['LWS_speedPick.pyc','LWS_InstallScripts.py','LWS_LicenseUI.pyc','LWS_Menu.mel','LWS_CharacterManager.py']
     for script in lwsScripts:
         if script not in scriptList :
             updateVersion = True
-
+            
     if versionCheck == True:
         currentVersion = open(versionFile, 'r').read()
-        currentVersion = int(currentVersion[-3:])
-        
+        currentVersion = int(currentVersion)
+        currentVersion
         if currentVersion < readVersion :
             updateVersion = True
         

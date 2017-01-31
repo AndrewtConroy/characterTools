@@ -9,7 +9,7 @@ string $name = "Long Winter";
 global string $gMainWindow;
 $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
 python("versionUrl = 'https://raw.githubusercontent.com/AndrewtConroy/characterTools/master/LWS_ToolsVersion.md'");
-string $version = python("urllib2.urlopen(versionUrl).read()");
+string $version = python("'version ' + urllib2.urlopen(versionUrl).read()");
 
 //here you can insert your labels and commands for the menu items. Replace test_01, 02, 03 with your own mel scripts.
     menuItem -p $MenuMain -l $version -en false -itl true;
