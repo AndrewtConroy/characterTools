@@ -8,11 +8,8 @@ string $name = "Long Winter";
 //to hook your menu into the main window
 global string $gMainWindow;
 $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
-python("versionUrl = 'https://raw.githubusercontent.com/AndrewtConroy/characterTools/master/LWS_ToolsVersion.md'");
-string $version = python("'version ' + urllib2.urlopen(versionUrl).read()");
 
 //here you can insert your labels and commands for the menu items. Replace test_01, 02, 03 with your own mel scripts.
-    menuItem -p $MenuMain -l $version -en false -itl true;
     menuItem -p $MenuMain -l "Activate Scene" -c "python(\"import LWS_LicenseUI\ as lic\");\npython(\"reload(lic)\");\npython(\"lic.UI()\");";
     menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
     menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\ as speed\");\npython(\"reload(speed)\");\npython(\"speed.UI()\");";
