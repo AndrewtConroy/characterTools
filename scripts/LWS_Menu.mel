@@ -11,13 +11,15 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
 
 //here you can insert your labels and commands for the menu items. Replace test_01, 02, 03 with your own mel scripts.
     menuItem -p $MenuMain -l "Activate Scene" -c "python(\"import LWS_LicenseUI\ as lic\");\npython(\"reload(lic)\");\npython(\"lic.UI()\");";
-    menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
+    menuItem -p $MenuMain -l "Character Manager" -c "python(\"import LWS_CharacterManager_v1\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
     menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\ as speed\");\npython(\"reload(speed)\");\npython(\"speed.UI()\");";
     menuItem -p $MenuMain -l "Hand Key" -c "python(\"import LWS_HandKey\ as key\");\npython(\"reload(key)\");\npython(\"key.UI()\");";
     menuItem -p $MenuMain -l "Snap" -c "python(\"import LWS_Snap\ as snap\");\npython(\"reload(snap)\");\npython(\"snap.UI()\");";
-    menuItem -p $MenuMain -l "Character Catalog" -c "launch -web \"https://longwintermembers.com/catalog/\";";
-    menuItem -p $MenuMain -l "Visit Site" -c "launch -web \"http://www.longwintermembers.com\";";
+    menuItem -p $MenuMain -l "Character Catalog" -c "launch -web \"https://longwintermembers.com/characters/\";";
+    menuItem -p $MenuMain -l "My Account" -c "launch -web \"http://www.longwintermembers.com\";";
     menuItem -p $MenuMain -l "HELP!" -c "launch -web \"https://longwintermembers.com/help\";";
+    menuItem -p $MenuMain -l "Old Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
+
         
         
         
