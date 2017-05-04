@@ -15,10 +15,8 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
     menuItem -p $MenuMain -l "Speed Pick" -c "python(\"import LWS_speedPick\ as speed\");\npython(\"reload(speed)\");\npython(\"speed.UI()\");";
     menuItem -p $MenuMain -l "Hand Key" -c "python(\"import LWS_HandKey\ as key\");\npython(\"reload(key)\");\npython(\"key.UI()\");";
     menuItem -p $MenuMain -l "Snap" -c "python(\"import LWS_Snap\ as snap\");\npython(\"reload(snap)\");\npython(\"snap.UI()\");";
-    menuItem -p $MenuMain -l "Character Catalog" -c "launch -web \"https://longwintermembers.com/characters/\";";
-    menuItem -p $MenuMain -l "My Account" -c "launch -web \"http://www.longwintermembers.com\";";
+    menuItem -p $MenuMain -l "Update Tools" -c "python(\"import LWS_InstallScripts as i\");\npython(\"reload(i)\");\npython(\"i.installScripts()\");";
     menuItem -p $MenuMain -l "HELP!" -c "launch -web \"https://longwintermembers.com/help\";";
-    menuItem -p $MenuMain -l "Old Character Manager" -c "python(\"import LWS_CharacterManager\ as man\");\npython(\"reload(man)\");\npython(\"man.UI()\");";
 
         
         
@@ -26,5 +24,3 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
 }
 ;
 
-//calling the proc, so that the script runs
-LWS_Menu;
