@@ -143,3 +143,7 @@ def installScripts(run = True):
         else:
             print "::Long Winter Tools are up to date::"
             
+    if run == False:
+        import LWS_LicenseUI as UI
+        reload (UI)
+        UI.UI()
