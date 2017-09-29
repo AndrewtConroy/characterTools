@@ -7,7 +7,7 @@ from os.path import isfile, join
 import zipfile
 import shutil
 
-def installScripts(run = True):
+def installScripts(run = False):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
     icons = cmds.internalVar(upd = True) + 'icons'
@@ -95,7 +95,7 @@ def installScripts(run = True):
             fileWrite.close()
         else:
             fileWrite.close()
-        
+    print run
     if run == True:
         import securityUtils as sec
         sec.activeScene()
