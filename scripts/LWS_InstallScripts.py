@@ -95,7 +95,6 @@ def installScripts(run = False):
             fileWrite.close()
         else:
             fileWrite.close()
-    print run
     if run == True:
         import securityUtils as sec
         sec.activeScene()
