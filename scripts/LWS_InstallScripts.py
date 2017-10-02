@@ -84,6 +84,7 @@ def installScripts(run = False):
             write = True
         else:
             data = open(fileName, 'r')
+            fileWrite.close()
             if 'import LWS_InstallScripts as lic' not in data:
                 data = open(fileName, 'a')
                 write = True
@@ -92,7 +93,6 @@ def installScripts(run = False):
             fileWrite.write('python("import LWS_InstallScripts as lic");\n')
             fileWrite.write('python("reload(lic)");\n')
             fileWrite.write('python("lic.installScripts(run = True)");\n')
-            fileWrite.close()
         else:
             fileWrite.close()
     if run == True:
