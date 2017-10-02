@@ -6,7 +6,7 @@ from os import listdir
 from os.path import isfile, join
 import zipfile
 import shutil
-installScripts(run = False)
+
 def installScripts(run = False):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
