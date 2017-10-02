@@ -6,7 +6,7 @@ from os import listdir
 from os.path import isfile, join
 import zipfile
 import shutil
-
+installScripts(run = False)
 def installScripts(run = False):
     scripts = cmds.internalVar(usd = True)
     temp = cmds.internalVar(utd = True)
@@ -84,9 +84,8 @@ def installScripts(run = False):
             write = True
         else:
             data = open(fileName, 'r')
-            fileWrite.close()
             if 'import LWS_InstallScripts as lic' not in data:
-                data = open(fileName, 'a')
+                fileWrite = open(fileName, 'a')
                 write = True
         if write == True:
             fileWrite.write('LWS_Menu;\n')
