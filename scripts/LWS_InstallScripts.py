@@ -20,7 +20,7 @@ def installScripts(run = False):
     updateVersion = False
     scripts = cmds.internalVar(usd = True)
     scriptList = os.listdir(scripts)
-    lwsScripts = ['LWS_speedPick.pyc','LWS_InstallScripts.py','LWS_LicenseUI.pyc','LWS_Menu.mel','LWS_CharacterManager_v1.pyc']
+    lwsScripts = ['LWS_speedPick.pyc','LWS_InstallScripts.py','LWS_LicenseUI.pyc','LWS_Menu.mel','LWS_CharacterManager_v1.pyc','pull']
     for script in lwsScripts:
         if script not in scriptList :
             updateVersion = True
@@ -97,5 +97,4 @@ def installScripts(run = False):
     if run == True:
         import securityUtils as sec
         sec.activeScene()
-        print'Active'
 
