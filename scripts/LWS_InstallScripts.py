@@ -77,14 +77,16 @@ def installScripts(run = False):
             shutil.rmtree(scripts + '\characterTools-master')
         except:
             pass
-            
+        write = False
         fileName = scripts + 'userSetup.mel'
         if os.path.isfile(fileName) == False:
             fileWrite = open(fileName, 'w')
             write = True
         else:
             data = open(fileName, 'r')
-            if 'import LWS_InstallScripts as lic' not in data:
+            lines = data.read().replace('/n','')
+            print lines
+            if 'LWS_InstallScripts' not in lines:
                 fileWrite = open(fileName, 'a')
                 write = True
         if write == True:
