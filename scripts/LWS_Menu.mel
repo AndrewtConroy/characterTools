@@ -16,6 +16,7 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
     menuItem -p $MenuMain -l "Hand Key" -c "python(\"import LWS_HandKey\ as key\");\npython(\"reload(key)\");\npython(\"key.UI()\");";
     menuItem -p $MenuMain -l "Snap" -c "python(\"import LWS_Snap\ as snap\");\npython(\"reload(snap)\");\npython(\"snap.UI()\");";
     menuItem -p $MenuMain -l "Update Tools" -c "python(\"import LWS_InstallScripts as i\");\npython(\"reload(i)\");\npython(\"i.installScripts(run = False)\");";
+    menuItem -p $MenuMain -l "Log Out" -c "python(\"import securityUtils as sec\");\npython(\"reload(sec)\");\npython(\"sec.logout()\");";
     menuItem -p $MenuMain -l "HELP!" -c "launch -web \"https://longwintermembers.com/help\";";
 
         
@@ -24,3 +25,4 @@ $MenuMain = `menu -p $gMainWindow -tearOff true -l $name`;
 }
 ;
 
+ 
